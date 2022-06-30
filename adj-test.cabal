@@ -9,17 +9,17 @@ extra-source-files: README.md
 cabal-version: >=1.10
 
 library
-  build-depends: adj, base
+  build-depends: adj, base, ghc-prim
   default-extensions: DataKinds, ConstraintKinds, ExistentialQuantification, GADTs, QuantifiedConstraints, InstanceSigs
     FlexibleContexts, FlexibleInstances, KindSignatures, LiberalTypeSynonyms, LambdaCase, FunctionalDependencies
-    MultiParamTypeClasses, PackageImports, PolyKinds, RankNTypes, ViewPatterns, ScopedTypeVariables, DerivingVia
+    MultiParamTypeClasses, PackageImports, PolyKinds, RankNTypes, ViewPatterns, ScopedTypeVariables, DerivingVia, NoImplicitPrelude
     StandaloneDeriving, TupleSections, TypeApplications, TypeFamilies, TypeFamilyDependencies, TypeOperators
-  exposed-modules:
-  ghc-options: -Wall -fno-warn-tabs
+  exposed-modules: Adj.Utils
+  ghc-options: -Wall -fno-warn-tabs -fno-warn-orphans
 
 executable just-for-test
   main-is: Problem/just-for-test.hs
-  build-depends: base, adj
+  build-depends: adj, base, ghc-prim
   default-extensions: AllowAmbiguousTypes, DataKinds, ConstraintKinds, ExistentialQuantification, GADTs, QuantifiedConstraints
     InstanceSigs, FlexibleContexts, FlexibleInstances, KindSignatures, LiberalTypeSynonyms, LambdaCase, FunctionalDependencies
     MultiParamTypeClasses, NoImplicitPrelude, PackageImports, PolyKinds, RankNTypes, ViewPatterns, ScopedTypeVariables,
